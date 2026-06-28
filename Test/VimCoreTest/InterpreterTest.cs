@@ -519,10 +519,7 @@ namespace Vim.UnitTest
             private string ReverseLines(string input)
             {
                 var newLine = Environment.NewLine;
-                var reversedLines = input
-                    .Split(new[] { newLine }, StringSplitOptions.None)
-                    .Reverse()
-                    .Skip(1);
+                var reversedLines = Enumerable.Reverse(input.Split(new[] { newLine }, StringSplitOptions.None)).Skip(1);
                 var output = String.Join(newLine, reversedLines) + newLine;
                 return output;
             }
